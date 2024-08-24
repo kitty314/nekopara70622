@@ -43,3 +43,15 @@ def CA_run(initial_state, n_steps, rule_number):
 initial = np.array([0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0])
 data = CA_run(initial, 100, 30)
 print(data)
+
+
+import matplotlib.pyplot as plt
+plt.rcParams['image.cmap'] = 'binary'
+
+rng = np.random.RandomState(0)
+data = CA_run(rng.randint(0, 2, 300), 150, 30)
+
+fig, ax = plt.subplots(figsize=(16, 9))
+ax.matshow(data)
+ax.axis(False)
+plt.show()
